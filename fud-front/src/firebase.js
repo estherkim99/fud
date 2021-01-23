@@ -9,3 +9,13 @@ const firebaseConfig = {
     appId: process.env.FIREBASE_API_KEY,
     measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
+
+
+try {
+    firebase.initializeApp(firebaseConfig);
+} catch (err) {
+    console.error('Firebase initialization failed with error:\n', err.message) 
+}
+
+const firebase = firebase;
+export default firebase;
