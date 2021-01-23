@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import './firebase/init';
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import Profile from "./pages/Profile";
+import { UserProvider } from "./firebase/UserProvider"
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <BrowserRouter>
+        <div className="App" style={{ height: "100vh", width: "100vw" }}>
+          <Switch>
+            <Route exact path="/"></Route>
+            <Route exact path="/signup" component={SignUp}></Route>
+            <Route exact path="/signin" component={SignIn}></Route>
+            <Route exact path="/profile" component={Profile}></Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
