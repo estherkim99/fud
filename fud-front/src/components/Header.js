@@ -148,7 +148,7 @@ export default function Header() {
 						{!!user && <Button color="inherit" onClick={() => history.push('/profile')}>View Profile</Button>}
 					</MenuItem>
 					<MenuItem onClick={closeMenu}>
-						{!!user && <Button color="inherit" onClick={() => logoutUser}>Sign Out</Button>}
+						{!!user && <Button color="inherit" onClick={() => logoutUser()}>Sign Out</Button>}
 					</MenuItem>
 				</Menu>
 			</Toolbar >
