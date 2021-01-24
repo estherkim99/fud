@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	titleContainer: {
 		flexGrow: 1,
+		maxWidth: '20vw'
 	},
 	title: {
 		textAlign: 'left',
@@ -35,9 +36,8 @@ const useStyles = makeStyles((theme) => ({
 		'&:hover': {
 			backgroundColor: fade(theme.palette.common.white, 0.25),
 		},
-		marginRight: theme.spacing(2),
-		marginLeft: theme.spacing(2),
-		width: '100%'
+		marginRight: theme.spacing(0),
+		marginLeft: theme.spacing(2)
 	},
 	searchIcon: {
 		padding: theme.spacing(0, 2),
@@ -46,18 +46,17 @@ const useStyles = makeStyles((theme) => ({
 		pointerEvents: 'none',
 		display: 'flex',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'center'
 	},
 	inputRoot: {
 		color: 'inherit',
-		width: '50%',
-		[theme.breakpoints.up('md')]: {
-			width: '80%',
-		},
+		marginLeft: theme.spacing(7),
+		width: 'calc(100%-56px)',
+		fontFamily: 'Redressed, cursive',
+		overflow: 'hidden',
 	},
 	inputInput: {
 		textAlign: 'left',
-		padding: theme.spacing(1, 1, 1, 0),
 		width: '100%'
 	},
 }));
@@ -94,7 +93,7 @@ export default function Header() {
 						<SearchIcon />
 					</div>
 					<InputBase
-						placeholder="Search"
+						placeholder="What do you want to eat?"
 						classes={{
 							root: classes.inputRoot,
 							input: classes.inputInput,
