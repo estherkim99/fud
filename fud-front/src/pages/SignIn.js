@@ -51,7 +51,7 @@ function SignIn(prop) {
 			console.log(error);
 		}
 		if (newUser) {
-			prop.history.push(`/profile`);
+			prop.history.push(`/`);
 		} else {
 			setLoading(false);
 		}
