@@ -40,15 +40,13 @@ function Home(prop) {
         <div>
             <Header></Header>
             <Container maxWidth="md" component="main">
-                <Container component="div">
+                <Container>
+                    <div></div>
                     <NewsFeed
                         dataSource={data}
                         onFeedRefresh={refresh}
                         onFeedLoad={load} />
                 </Container>
-            </Container>
-            <Container>
-
             </Container>
             <Footer></Footer>
         </div>
