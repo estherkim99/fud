@@ -33,7 +33,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FeedCard({title="Pork and Leak Dumplings", user="viv.s.li", image="/images/dumplings.jpg", description=""}) {
+export default function FeedCard({
+  title="Pork and Leak Dumplings", 
+  user="viv.s.li", 
+  image="/images/dumplings.jpg", 
+  description="",
+  loves="1.4k",
+  time="15min",
+  cost="5"
+}) {
   const classes = useStyles();
   
   return (
@@ -64,12 +72,15 @@ export default function FeedCard({title="Pork and Leak Dumplings", user="viv.s.l
       <CardActions disableSpacing>
         <IconButton aria-label="loves">
           <FavoriteBorderOutlinedIcon />
+          <Typography className={classes.redressed}>{loves}</Typography>          
         </IconButton>
         <IconButton aria-label="prep time">
           <ScheduleOutlinedIcon />
+          <Typography className={classes.redressed}>{time}</Typography>
         </IconButton>
         <IconButton aria-label="price">
           <AttachMoneyOutlinedIcon />
+          <Typography className={classes.redressed}>{cost}</Typography>
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
