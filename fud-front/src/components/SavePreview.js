@@ -5,6 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import LoadingWheel from './LoadingWheel'
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from '@material-ui/core';
+import Draggable from 'react-draggable';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -20,12 +21,12 @@ const useStyles = makeStyles((theme) => ({
     },
     cardImage: {
         width: '100%',
-        height: '100px',  
+        height: '100px',
     }
 }))
 
-export default function SavePreview({dataSource, onFeedRefresh, onFeedLoad}) {
-    const classes =useStyles();
+export default function SavePreview({ dataSource, onFeedRefresh, onFeedLoad }) {
+    const classes = useStyles();
     var wrapper = React.useRef();
     var refreshingWheel = React.useRef();
     var loadingWheel = React.useRef();
@@ -34,10 +35,13 @@ export default function SavePreview({dataSource, onFeedRefresh, onFeedLoad}) {
 
     var cells = dataSource.map(function (item, index) {
         return (
+
             <Card elevation={0} className={classes.card} key={index}>
-                
-                <CardMedia className={classes.cardImage} image="/images/dumplings.jpg"></CardMedia>
+                <Draggable>
+                    <CardMedia className={classes.cardImage} image="/images/dumplings.jpg"></CardMedia>
+                </Draggable>
             </Card>
+
         )
     })
 
@@ -69,10 +73,10 @@ export default function SavePreview({dataSource, onFeedRefresh, onFeedLoad}) {
     }
     return (
         <div ref={wrapper} onScroll={handleScroll} className={classes.wrapper}
-        style={{ height: 'calc(100vh - 84px)', overflowY: 'scroll' }}>
+            style={{ height: 'calc(100vh - 84px)', overflowY: 'scroll' }}>
             <Typography component="h2" className={classes.sectionTitle}>Saved Recipes</Typography>
             <div ref={refreshingWheel} />
-            
+
             <div>{cells}</div>
             <div ref={loadingWheel} />
         </div>
