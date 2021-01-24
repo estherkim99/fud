@@ -22,11 +22,10 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
-		// backgroundColor: theme.palette.background.default,
 	},
 	avatar: {
 		margin: theme.spacing(1),
-		backgroundColor: theme.palette.primary.main,
+		backgroundColor: "#83BF22" //'#DEFFD6'
 	},
 	form: {
 		width: "100%", // Fix IE 11 issue.
@@ -34,7 +33,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
+		backgroundColor: "#83BF22"
 	},
+	link: {
+		color: "#83BF22",
+	}
 }));
 
 function SignIn(prop) {
@@ -123,7 +126,7 @@ function SignIn(prop) {
               </Link> */}
 						</Grid>
 						<Grid item xs={7}>
-							<Link href="/signup" variant="body1">
+							<Link href="/signup" variant="body1" className={classes.link}>
 								Don't have an account? Sign Up
               </Link>
 						</Grid>
