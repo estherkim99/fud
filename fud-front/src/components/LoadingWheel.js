@@ -1,7 +1,16 @@
 import React from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { makeStyles } from "@material-ui/core/styles";
 
-const LoadingWheel = () => {
+const useStyles = makeStyles((theme) => ({
+  progress: {
+    color: '#83BF22',
+  }
+}))
+
+export default function LoadingWheel() {
+  const classes = useStyles();
+  
   return (
     <div
       style={{
@@ -11,11 +20,9 @@ const LoadingWheel = () => {
         alignItems: "center",
         justifyContent: "center",
         margin: "15px 0px",
-        color: '#83BF22'
       }}
     >
-      <CircularProgress disableShrink color="#83BF22" />
+      <CircularProgress disableShrink className={classes.progress} color="primary" />
     </div>
   );
 };
-export default LoadingWheel;
