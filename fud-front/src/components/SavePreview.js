@@ -34,7 +34,7 @@ export default function SavePreview({dataSource, onFeedRefresh, onFeedLoad}) {
 
     var cells = dataSource.map(function (item, index) {
         return (
-            <Card elevation={0} className={classes.card}>
+            <Card elevation={0} className={classes.card} key={index}>
                 
                 <CardMedia className={classes.cardImage} image="/images/dumplings.jpg"></CardMedia>
             </Card>
