@@ -23,12 +23,9 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     newsfeed: {
-        maxWidth: '100%',
         [theme.breakpoints.up('md')]: {
-            maxWidth: '250px',
             margin: 'auto',
         },
-
     },
     preview: {
 
