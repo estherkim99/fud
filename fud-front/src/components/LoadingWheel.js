@@ -10,9 +10,11 @@ const LoadingWheel = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        margin: "15px 0px",
+        color: '#83BF22'
       }}
     >
-      <CircularProgress />
+      <CircularProgress disableShrink color="#83BF22" />
     </div>
   );
 };
