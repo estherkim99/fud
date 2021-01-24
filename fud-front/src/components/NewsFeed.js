@@ -11,7 +11,15 @@ export default function RefreshableNewsFeed({dataSource, onFeedRefresh, onFeedLo
     const [isLoading, setIsLoading] = React.useState(false)
 
     var feed = dataSource.map(function (item, index) {
-        return <FeedCard key={index} />
+        return <FeedCard key={index} 
+            user={item.user}
+            title={item.title}
+            image={item.image}
+            description={item.description}
+            loves={item.loves}
+            time={item.time}
+            cost={item.cost}
+        />
     })
 
     const handleScroll = () => {

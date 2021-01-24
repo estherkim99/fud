@@ -7,6 +7,73 @@ import SavePreview from "../components/SavePreview";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+const dummy = [
+    {
+        title:"Pork and Leak Dumplings", 
+        user:"viv.s.li", 
+        image:"/images/dumplings.jpg", 
+        description:"",
+        loves:"1.4k",
+        time:"15min",
+        cost:"5"
+    },
+    {
+        title:"Homemade Lasagna", 
+        user:"estherkim99", 
+        image:"/images/lasagna.jpeg", 
+        description:"",
+        loves:"1.4k",
+        time:"20min",
+        cost:"4"
+    },
+    {
+        title:"Bibimbap", 
+        user:"phong.nguyen", 
+        image:"/images/bibimbap.jpeg", 
+        description:"",
+        loves:"1.4k",
+        time:"15min",
+        cost:"9"
+    },
+    {
+        title:"Vietnamese Pho", 
+        user:"viv.s.li", 
+        image:"/images/pho.jpg", 
+        description:"",
+        loves:"1.4k",
+        time:"17min",
+        cost:"6"
+    },
+    {
+        title:"Korean Friend Chicken", 
+        user:"estherkim99", 
+        image:"/images/koreanfriendchicken.jpeg", 
+        description:"",
+        loves:"1.5k",
+        time:"35min",
+        cost:"12"
+    },
+    {
+        title:"Seafood Tomato Pasta", 
+        user:"viv.s.li", 
+        image:"/images/seafoodpasta.jpeg", 
+        description:"",
+        loves:"1.8k",
+        time:"15min",
+        cost:"5"
+    },
+    {
+        title:"Chicken Tikka Masala", 
+        user:"phong.nguyen", 
+        image:"/images/chickentikkamasala.jpeg", 
+        description:"",
+        loves:"1.7k",
+        time:"20min",
+        cost:"5"
+    }
+]
+
+
 const useStyles = makeStyles((theme) => ({
     newsfeedContainer: {
         paddingTop: theme.spacing(1),
@@ -40,7 +107,7 @@ function Home(prop) {
     }
     function getInitData(initialCnt=10) {
         var data = []
-        for (var i = 0; i < initialCnt; i++) { data.push(i) }
+        for (var i = 0; i < initialCnt; i++) { data.push(dummy[Math.round(Math.random() * 6)]) }
         return data
     }
 
@@ -56,7 +123,7 @@ function Home(prop) {
         setTimeout(() => {
             var newData = Object.assign([], data)
             for (var i = 0; i < 3; i++) {
-                newData.push(i)
+                newData.push(dummy[i % 7])
             }
             detach();
             setData(newData);
@@ -74,7 +141,7 @@ function Home(prop) {
         setTimeout(() => {
             var newData = Object.assign([], savedData)
             for (var i = 0; i < 3; i++) {
-                newData.push(i)
+                newData.push(dummy[i % 7])
             }
             detach();
             setSaved(newData);

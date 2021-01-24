@@ -5,7 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import LoadingWheel from './LoadingWheel'
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from '@material-ui/core';
-import Draggable from 'react-draggable';
+// import Draggable from 'react-draggable';
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -37,9 +37,10 @@ export default function SavePreview({ dataSource, onFeedRefresh, onFeedLoad }) {
         return (
 
             <Card elevation={0} className={classes.card} key={index}>
-                <Draggable>
-                    <CardMedia className={classes.cardImage} image="/images/dumplings.jpg"></CardMedia>
-                </Draggable>
+                {/* <Draggable> */}
+                    <CardMedia className={classes.cardImage} 
+                    image={item.image}></CardMedia>
+                {/* </Draggable> */}
             </Card>
 
         )
