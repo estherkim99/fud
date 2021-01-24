@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import Plan from "./pages/Plan";
 import { UserProvider } from "./firebase/UserProvider"
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
             <Route exact path="/signup" component={SignUp}></Route>
             <Route exact path="/signin" component={SignIn}></Route>
             <Route exact path="/profile" component={Profile}></Route>
+            <Route exact path="/plan" component={Plan}></Route>
           </Switch>
         </div>
       </BrowserRouter>
