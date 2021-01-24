@@ -102,25 +102,24 @@ export default function Header() {
 					/>
 				</div>
 				<IconButton
-					aria-controls="primary-search-account-menu"
 					color="inherit"
+					onClick={() => history.push("/")}
 				>
 					<HomeOutlinedIcon />
 				</IconButton>
 				<IconButton
-					aria-controls="primary-search-account-menu"
 					color="inherit"
+					onClick={() => history.push("/profile")}
 				>
 					<FavoriteBorderOutlinedIcon />
 				</IconButton>
 				<IconButton
-					aria-controls="primary-search-account-menu"
 					color="inherit"
+					onClick={() => history.push("/plan")}
 				>
 					<CalendarTodayOutlinedIcon />
 				</IconButton>
 				<IconButton
-					aria-controls="primary-search-account-menu"
 					aria-haspopup="true"
 					color="inherit"
 					onClick={openMenu}
