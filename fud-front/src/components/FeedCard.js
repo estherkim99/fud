@@ -14,6 +14,9 @@ import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined';
 import ScheduleOutlinedIcon from '@material-ui/icons/ScheduleOutlined';
 
 const useStyles = makeStyles((theme) => ({
+  recipeCard: {
+    marginBottom: '30px'
+  },
   media: {
       height: '0',
       paddingTop: '60%',
@@ -45,7 +48,7 @@ export default function FeedCard({
   const classes = useStyles();
   
   return (
-    <Card>
+    <Card variant="outlined" className={classes.recipeCard}>
       <CardHeader
         avatar={<Typography className={classes.redressed}>{user}</Typography>
         }

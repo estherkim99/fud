@@ -10,7 +10,7 @@ export default function RefreshableNewsFeed({dataSource, onFeedRefresh, onFeedLo
     const [isRefreshing, setIsRefreshing] = React.useState(false)
     const [isLoading, setIsLoading] = React.useState(false)
 
-    var cells = dataSource.map(function (item, index) {
+    var feed = dataSource.map(function (item, index) {
         return <FeedCard key={index} />
     })
 
@@ -44,7 +44,7 @@ export default function RefreshableNewsFeed({dataSource, onFeedRefresh, onFeedLo
         <div ref={wrapper} onScroll={handleScroll}
         style={{ height: 'calc(100vh - 100px)', overflowY: 'scroll' }}>
             <div ref={refreshingWheel} />
-            <div>{cells}</div>
+            <div>{feed}</div>
             <div ref={loadingWheel} />
         </div>
     )
