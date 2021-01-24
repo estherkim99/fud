@@ -4,7 +4,10 @@ import { signOut } from "../firebase/auth";
 import { useHistory } from "react-router-dom";
 import { useSession } from "../firebase/UserProvider";
 import { AppBar, Toolbar, IconButton, Button, Typography, InputBase, Menu, MenuItem } from '@material-ui/core';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import CalendarTodayOutlinedIcon from '@material-ui/icons/CalendarTodayOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	appBar: {
 		backgroundColor: '#DEFFD6',
-		color: 'black',
-		boxShadow: 'none',
+		color: 'black'
 	},
 	titleContainer: {
 		flexGrow: 1,
@@ -81,7 +83,7 @@ export default function Header() {
 	};
 
 	return (
-		<AppBar position="static" className={classes.appBar}>
+		<AppBar position="static" className={classes.appBar} elevation={0}>
 			<Toolbar>
 				<Button className={classes.titleContainer} onClick={() => history.push("/")}>
 					<Typography className={classes.title}>
@@ -100,22 +102,39 @@ export default function Header() {
 						inputProps={{ 'aria-label': 'search' }}
 					/>
 				</div>
-
 				<IconButton
-					aria-label="account of current user"
+					aria-controls="primary-search-account-menu"
+					color="inherit"
+				>
+					<HomeOutlinedIcon />
+				</IconButton>
+				<IconButton
+					aria-controls="primary-search-account-menu"
+					color="inherit"
+				>
+					<FavoriteBorderOutlinedIcon />
+				</IconButton>
+				<IconButton
+					aria-controls="primary-search-account-menu"
+					color="inherit"
+				>
+					<CalendarTodayOutlinedIcon />
+				</IconButton>
+				<IconButton
 					aria-controls="primary-search-account-menu"
 					aria-haspopup="true"
 					color="inherit"
 					onClick={openMenu}
 				>
-					<AccountCircle />
+					<AccountCircleOutlinedIcon />
 				</IconButton>
 
 				<Menu
-					id="menu-appbar"
+					elevation={0}
 					anchorEl={anchorMenuEl}
+					getContentAnchorEl={null}
 					anchorOrigin={{
-						vertical: 'top',
+						vertical: 'bottom',
 						horizontal: 'right',
 					}}
 					keepMounted
