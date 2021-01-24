@@ -34,12 +34,12 @@ const useStyles = makeStyles((theme) => ({
 	}
 }))
 
-export default function Profile() {
+export default function Profile(prop) {
 	const classes = useStyles();
 	const { user } = useSession();
 	if (!user) {
-		return null;
-	}
+        prop.history.push(`/signin`);
+    }
 
 	const userInfo = {
 		followers: 143, 
@@ -63,8 +63,6 @@ export default function Profile() {
 				{!!user && (
 					<Container>
 						<div style={{height: '40px', 'width': '100px'}}></div>
-						
-						{/* <p>Email: {user.email}</p> */}
 					</Container>
 				)}
 			</Grid>
