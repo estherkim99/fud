@@ -1,7 +1,10 @@
 import React from "react";
 import { useSession } from "../firebase/UserProvider";
 import Header from "../components/Header";
-import { Grid, Avatar, Typography, Container, Button, Tab, Tabs, Box } from "@material-ui/core";
+import { Grid, Avatar, Typography, Container, Button, Tab, Tabs, Card } from "@material-ui/core";
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from 'prop-types';
 
@@ -32,7 +35,15 @@ const useStyles = makeStyles((theme) => ({
 		top: '225px',
 		left: 'calc(7.5vw + 120px)',
 		fontFamily: 'Redressed, cursive',
-	}
+	},
+	cardCol: {
+		padding: theme.spacing(1),
+		// display: 'block'
+	},
+	media: {
+		height: '150px',
+		backgroundColor: '#F5F5F5',
+	},
 }))
 
 function TabPanel(props) {
@@ -47,9 +58,9 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box p={3}>
-					<Typography>{children}</Typography>
-				</Box>
+				<div>
+					{children}
+				</div>
 			)}
 		</div>
 	);
@@ -59,13 +70,6 @@ TabPanel.propTypes = {
 	index: PropTypes.any.isRequired,
 	value: PropTypes.any.isRequired,
 };
-
-function a11yProps(index) {
-	return {
-		id: `full-width-tab-${index}`,
-		'aria-controls': `full-width-tabpanel-${index}`,
-	};
-}
 
 export default function Profile(prop) {
 	const classes = useStyles();
@@ -81,16 +85,69 @@ export default function Profile(prop) {
 
 	const userInfo = {
 		followers: 143,
-		following: 120
+		following: 120,
+		name: 'Demo User'
 	}
+
+	var recipes = [...Array(10).keys()].map((item, index) => {
+		return <Grid item xs={6} md={4} lg={3} className={classes.cardCol} key={index}>
+			<Card>
+			<CardActionArea>
+				<CardMedia
+					className={classes.media}
+					image="/"
+				/>
+			</CardActionArea>
+			<CardActions>
+				<Button size="small" color="primary">
+					Read more
+        		</Button>
+			</CardActions>
+		</Card>
+		</Grid>
+	})
+	var achievements = [...Array(10).keys()].map((item, index) => {
+		return <Grid item xs={6} md={4} lg={3} className={classes.cardCol} key={index}>
+			<Card>
+			<CardActionArea>
+				<CardMedia
+					className={classes.media}
+					image="/"
+				/>
+			</CardActionArea>
+			<CardActions>
+				<Button size="small" color="primary">
+					Read more
+        		</Button>
+			</CardActions>
+		</Card>
+		</Grid>
+	})
+	var stories = [...Array(10).keys()].map((item, index) => {
+		return <Grid item xs={6} md={4} lg={3} className={classes.cardCol} key={index}>
+			<Card>
+			<CardActionArea>
+				<CardMedia
+					className={classes.media}
+					image="/"
+				/>
+			</CardActionArea>
+			<CardActions>
+				<Button size="small" color="primary">
+					Read more
+        		</Button>
+			</CardActions>
+		</Card>
+		</Grid>
+	})
 
 	return (
 		<div>
 			<Header></Header>
-			<Grid container component="main" maxWidth="xs">
+			<Grid container component="main">
 				<div className={classes.cover}>
 					<div>
-						<Typography variant='h4' className={classes.name}>{user.displayName}</Typography>
+						<Typography variant='h4' className={classes.name || userInfo.name}>{user.displayName}</Typography>
 						<Button className={classes.button}>{userInfo.followers} Followers</Button>
 						<Button className={classes.button}>{userInfo.following} Following</Button>
 					</div>
@@ -103,15 +160,15 @@ export default function Profile(prop) {
 						<Tab label="My Stories" />
 					</Tabs>
 
-        <TabPanel value={value} index={0} >
-          Item One
-        </TabPanel>
-        <TabPanel value={value} index={1} >
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Item Three
-        </TabPanel>
+					<TabPanel value={value} index={0} >
+						<Grid container>{recipes}</Grid>	
+					</TabPanel>
+					<TabPanel value={value} index={1} >
+						<Grid container>{achievements}</Grid>
+					</TabPanel>
+					<TabPanel value={value} index={2}>
+						<Grid container>{stories}</Grid>
+					</TabPanel>
 
 				</Container>
 			</Grid>
