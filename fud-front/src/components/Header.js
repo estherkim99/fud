@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 	inputRoot: {
 		color: 'inherit',
 		marginLeft: theme.spacing(7),
-		width: 'calc(100%-56px)',
+		width: 'calc(100% - 56px)',
 		fontFamily: 'Redressed, cursive',
 		overflow: 'hidden',
 	},
