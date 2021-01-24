@@ -27,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
             margin: 'auto',
         },
     },
-    preview: {
-
-    }
-
 }))
 
 function Home(prop) {
@@ -76,7 +72,7 @@ function Home(prop) {
 
     function loadSaved(detach) {
         setTimeout(() => {
-            var newData = Object.assign([], data)
+            var newData = Object.assign([], savedData)
             for (var i = 0; i < 3; i++) {
                 newData.push(i)
             }

@@ -1,8 +1,9 @@
 import React from "react";
 import { useSession } from "../firebase/UserProvider";
 import Header from "../components/Header";
-import { Grid, Avatar, Typography, Container, Button } from "@material-ui/core";
+import { Grid, Avatar, Typography, Container, Button, Tab, Tabs, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
 	cover: {
@@ -34,15 +35,52 @@ const useStyles = makeStyles((theme) => ({
 	}
 }))
 
+function TabPanel(props) {
+	const { children, value, index, ...other } = props;
+
+	return (
+		<div
+			role="tabpanel"
+			hidden={value !== index}
+			id={`full-width-tabpanel-${index}`}
+			aria-labelledby={`full-width-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box p={3}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
+}
+TabPanel.propTypes = {
+	children: PropTypes.node,
+	index: PropTypes.any.isRequired,
+	value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+	return {
+		id: `full-width-tab-${index}`,
+		'aria-controls': `full-width-tabpanel-${index}`,
+	};
+}
+
 export default function Profile(prop) {
 	const classes = useStyles();
 	const { user } = useSession();
+	const [value, setValue] = React.useState(0);
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
+
 	if (!user) {
-        prop.history.push(`/signin`);
-    }
+		prop.history.push(`/signin`);
+	}
 
 	const userInfo = {
-		followers: 143, 
+		followers: 143,
 		following: 120
 	}
 
@@ -52,19 +90,30 @@ export default function Profile(prop) {
 			<Grid container component="main" maxWidth="xs">
 				<div className={classes.cover}>
 					<div>
-					<Typography variant='h4' className={classes.name}>{user.displayName}</Typography>
-					<Button className={classes.button}>{userInfo.followers} Followers</Button>
-					<Button className={classes.button}>{userInfo.following} Following</Button>
+						<Typography variant='h4' className={classes.name}>{user.displayName}</Typography>
+						<Button className={classes.button}>{userInfo.followers} Followers</Button>
+						<Button className={classes.button}>{userInfo.following} Following</Button>
 					</div>
 				</div>
 				<Avatar className={classes.profile}></Avatar>
+				<Container>
+					<Tabs value={value} onChange={handleChange} variant="fullWidth">
+						<Tab label="My Recipes" />
+						<Tab label="Achievements" />
+						<Tab label="My Stories" />
+					</Tabs>
 
+        <TabPanel value={value} index={0} >
+          Item One
+        </TabPanel>
+        <TabPanel value={value} index={1} >
+          Item Two
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Item Three
+        </TabPanel>
 
-				{!!user && (
-					<Container>
-						<div style={{height: '40px', 'width': '100px'}}></div>
-					</Container>
-				)}
+				</Container>
 			</Grid>
 		</div>
 	);
