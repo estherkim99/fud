@@ -4,10 +4,9 @@ import { Container, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	footer: {
-		position: 'absolute',
+		position: 'relative',
 		height: 'fit-content',
-		bottom: '0',
-		padding: '3px 0px'
+		padding: '10px 0px'
 	},
 	copyright: {
 		fontSize: 'small',
