@@ -4,6 +4,7 @@
 
 ## Demo
 >**Please use the following email&password for demo** Email: demo@fududesign.com, password: hackatbrown
+
 Click on the image below to see a video demo on Youtube or navigate to [https://fud-u-design.firebaseapp.com/](https://fud-u-design.firebaseapp.com/).
 [![Demo](https://img.youtube.com/vi/ffxqeVHtBeU/maxresdefault.jpg)](https://youtu.be/ffxqeVHtBeU)
 
